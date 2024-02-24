@@ -17,8 +17,10 @@ public class Main {
     cryptographer.printAlphabet();
     cryptographer.mixUkrAlphabet();
 
+
     char [] charArray = readFromFile("C:\\Users\\lesja\\Desktop\\Забезпечення якості програмних продуктів\\"
         + "untitled\\src\\main\\java\\text25.txt");
+
 
     System.out.println("\nВхідний текст:");
     System.out.println(charArray);

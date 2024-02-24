@@ -1,6 +1,12 @@
 package main.java;
 
+import java.util.Random;
+
 public class Cryptographer {
+
+  public Cryptographer() {
+    shuffleArray();
+  }
 
   private static final char[] ukrAlphabet = {
       'а', 'б', 'в', 'г', 'ґ', 'д', 'е', 'є', 'ж', 'з', 'и', 'і', 'ї', 'й',
@@ -8,12 +14,12 @@ public class Cryptographer {
       'ш', 'щ', 'ь', 'ю', 'я'
   };
 
-  private static final char[] mixUkrAlphabet = {
+/*  private static final char[] mixUkrAlphabet = {
       'ф', 'у', 'ї', 'б', 'т', 'д', 'м', 'ж', 'о', 'ч', 'г', 'н', 'п', 'а',
       'и', 'х', 'е', 'в', 'ц', 'я', 'ш', 'ґ', 'щ', 'і', 'ь', 'л', 'з', 'й',
       'с', 'ю', 'є', 'р', 'к'
-  };
-
+  };*/
+  private static final char[] mixUkrAlphabet = new char[ukrAlphabet.length];
 
   public char[] textEncryption(char[] charArray ){
 
@@ -50,16 +56,17 @@ public class Cryptographer {
       System.out.print(c + " ");
   }
 
-  /*  static void shuffleArray(char[] array) {
+    static void shuffleArray() {
     int index;
     char temp;
     Random random = new Random();
-    for (int i = array.length - 1; i > 0; i--) {
-      index = random.nextInt(i + 1);
-      temp = array[index];
-      array[index] = array[i];
-      array[i] = temp;
-    }
-  }*/
+      System.arraycopy(ukrAlphabet, 0, mixUkrAlphabet, 0, ukrAlphabet.length);
 
+      for (int i = mixUkrAlphabet.length - 1; i > 0; i--) {
+        index = random.nextInt(i + 1);
+        temp = mixUkrAlphabet[index];
+        mixUkrAlphabet[index] = mixUkrAlphabet[i];
+        mixUkrAlphabet[i] = temp;
+      }
+  }
 }

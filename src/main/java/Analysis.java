@@ -23,11 +23,8 @@ public class Analysis {
       }
     }
 
-  public static HashMap<Character, Boolean> getAnalysisOfLetters() {
-    return analysisOfLetters;
-  }
-
   public void printResultAnalysis(){
+    System.out.println("Аналіз результатів: ");
     analysisOfLetters.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
 
     System.out.println( "Кількість використаних значень: " + analysisOfLetters.size());

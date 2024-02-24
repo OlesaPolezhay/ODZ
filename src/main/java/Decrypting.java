@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Decrypting {
-
   static private HashMap<Character, Double> StatisticsOfLetters;
   static private HashMap<Character, Integer> letterCount;
 
@@ -74,11 +73,10 @@ public class Decrypting {
       }
     }
     letterCount = sortByValue(letterCount);
-    System.out.println();
 
-    for (Map.Entry<Character, Integer> entry : letterCount.entrySet()) {
-      System.out.print(entry.getKey() + ": " + entry.getValue() + " ");
-    }
+    // розрахунок літер у зашифрованому тексті
+    System.out.println();
+    letterCount.forEach((key, value) -> System.out.print( key + ": " + value + " "));
   }
   public static <T extends Comparable<? super T>> LinkedHashMap<Character, T> sortByValue(HashMap<Character, T> map) {
     List<Entry<Character, T>> list = new LinkedList<>(map.entrySet());
@@ -97,9 +95,6 @@ public class Decrypting {
     return sortedMap;
   }
 
-  public static HashMap<Character, Double> getStatisticsOfLetters() {
-    return StatisticsOfLetters;
-  }
   public char[] descrint(char[] charArray){
 
     char[][] resultMatrixLetter = new char[2][StatisticsOfLetters.size()];
@@ -114,9 +109,9 @@ public class Decrypting {
 
 // Виведення матриці
     System.out.println();
-    for (int i = 0; i < resultMatrixLetter.length; i++) {
-      for (int j = 0; j < resultMatrixLetter[i].length; j++) {
-        System.out.print(resultMatrixLetter[i][j] + " ");
+    for (char[] chars : resultMatrixLetter) {
+      for (char aChar : chars) {
+        System.out.print(aChar + " ");
       }
       System.out.println();
     }
