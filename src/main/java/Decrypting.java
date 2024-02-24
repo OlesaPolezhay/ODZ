@@ -52,7 +52,7 @@ public class Decrypting {
     StatisticsOfLetters.put('ь', 0.029);
     StatisticsOfLetters.put('і', 0.057);
     StatisticsOfLetters.put('т', 0.055);
-    //StatisticsOfLetters.put('-', 0.17);
+    StatisticsOfLetters.put(' ', 0.17);
 
     StatisticsOfLetters = sortByValue(StatisticsOfLetters);
 
@@ -67,8 +67,11 @@ public class Decrypting {
     letterCount = new HashMap<>();
 
     for (char c : chars) {
+      int resultGap = Character.compare(c, ' ');
       if (Character.isLetter(c)) {
         c = Character.toLowerCase(c);
+        letterCount.put(c, letterCount.getOrDefault(c, 0) + 1);
+      } else if(resultGap == 0){
         letterCount.put(c, letterCount.getOrDefault(c, 0) + 1);
       }
     }

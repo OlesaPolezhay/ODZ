@@ -15,8 +15,9 @@ public class Analysis {
         char charArrayChar = Character.toLowerCase(charArray[i]);
         char decryptedTextChar = Character.toLowerCase(decryptedText[i]);
         int result =  Character.compare(charArrayChar, decryptedTextChar);
+        int resultGap = Character.compare(charArrayChar, ' ');
 
-        if (Character.isLetter(charArrayChar) && result == 0 )
+        if ((Character.isLetter(charArrayChar) || resultGap == 0) && result == 0 )
           analysisOfLetters.put(charArrayChar, true);
         else if (Character.isLetter(charArrayChar))
           analysisOfLetters.put(charArrayChar, false);
