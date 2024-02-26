@@ -8,10 +8,15 @@ public class Cryptographer {
     shuffleArray();
   }
 
-  private static final char[] ukrAlphabet = {
+/*  private static final char[] ukrAlphabet = {
       'а', 'б', 'в', 'г', 'ґ', 'д', 'е', 'є', 'ж', 'з', 'и', 'і', 'ї', 'й',
       'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч',
       'ш', 'щ', 'ь', 'ю', 'я', ' '
+  };*/
+
+  private static final char[] engAlphabet = {
+      'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '
   };
 
 /*  private static final char[] mixUkrAlphabet = {
@@ -19,7 +24,7 @@ public class Cryptographer {
       'и', 'х', 'е', 'в', 'ц', 'я', 'ш', 'ґ', 'щ', 'і', 'ь', 'л', 'з', 'й',
       'с', 'ю', 'є', 'р', 'к'
   };*/
-  private static final char[] mixUkrAlphabet = new char[ukrAlphabet.length];
+  private static final char[] mixUkrAlphabet = new char[engAlphabet .length];
 
   public char[] textEncryption(char[] charArray ){
 
@@ -29,8 +34,8 @@ public class Cryptographer {
     for (char c : charArray) {
       c = Character.toLowerCase(c);
       boolean found = false;
-      for (int i = 0; i < ukrAlphabet.length; i++) {
-        if (c == ukrAlphabet[i]) {
+      for (int i = 0; i < engAlphabet .length; i++) {
+        if (c == engAlphabet[i]) {
           encryptedText[indexEncryptedText] = mixUkrAlphabet[i];
           found = true;
           break;
@@ -46,7 +51,7 @@ public class Cryptographer {
 
     public  void printAlphabet(){
     System.out.println("Український алфавіт");
-    for (char c : ukrAlphabet)
+    for (char c : engAlphabet )
       System.out.print(c + " ");
     }
 
@@ -60,7 +65,7 @@ public class Cryptographer {
     int index;
     char temp;
     Random random = new Random();
-      System.arraycopy(ukrAlphabet, 0, mixUkrAlphabet, 0, ukrAlphabet.length);
+      System.arraycopy(engAlphabet , 0, mixUkrAlphabet, 0, engAlphabet .length);
 
       for (int i = mixUkrAlphabet.length - 1; i > 0; i--) {
         index = random.nextInt(i + 1);

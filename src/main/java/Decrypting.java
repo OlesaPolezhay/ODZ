@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Decrypting {
-  static private HashMap<Character, Double> StatisticsOfLetters;
+  static private HashMap<Character, Double> statisticsOfLetters;
   static private HashMap<Character, Integer> letterCount;
 
   public Decrypting() {
@@ -19,45 +19,40 @@ public class Decrypting {
 
   public void statisticsOfUkrLetters(){
 
-    StatisticsOfLetters = new HashMap<>();
-    StatisticsOfLetters.put('а', 0.072);
-    StatisticsOfLetters.put('ї', 0.006);
-    StatisticsOfLetters.put('у', 0.04);
-    StatisticsOfLetters.put('б', 0.017);
-    StatisticsOfLetters.put('й', 0.008);
-    StatisticsOfLetters.put('ф', 0.001);
-    StatisticsOfLetters.put('в', 0.052);
-    StatisticsOfLetters.put('к', 0.035);
-    StatisticsOfLetters.put('х', 0.012);
-    StatisticsOfLetters.put('г', 0.016);
-    StatisticsOfLetters.put('л', 0.036);
-    StatisticsOfLetters.put('ц', 0.006);
-    StatisticsOfLetters.put('д', 0.035);
-    StatisticsOfLetters.put('м', 0.031);
-    StatisticsOfLetters.put('ч', 0.018);
-    StatisticsOfLetters.put('е', 0.017);
-    StatisticsOfLetters.put('н', 0.065);
-    StatisticsOfLetters.put('ш', 0.012);
-    StatisticsOfLetters.put('є', 0.008);
-    StatisticsOfLetters.put('о', 0.094);
-    StatisticsOfLetters.put('щ', 0.001);
-    StatisticsOfLetters.put('ж', 0.009);
-    StatisticsOfLetters.put('п', 0.029);
-    StatisticsOfLetters.put('ю', 0.004);
-    StatisticsOfLetters.put('з', 0.023);
-    StatisticsOfLetters.put('р', 0.047);
-    StatisticsOfLetters.put('я', 0.029);
-    StatisticsOfLetters.put('и', 0.061);
-    StatisticsOfLetters.put('с', 0.041);
-    StatisticsOfLetters.put('ь', 0.029);
-    StatisticsOfLetters.put('і', 0.057);
-    StatisticsOfLetters.put('т', 0.055);
-    StatisticsOfLetters.put(' ', 0.17);
+    statisticsOfLetters = new HashMap<>();
+    statisticsOfLetters.put('e', 11.1607);
+    statisticsOfLetters.put('a', 8.4966);
+    statisticsOfLetters.put('r', 7.5809);
+    statisticsOfLetters.put('i', 7.5448);
+    statisticsOfLetters.put('o', 7.1635);
+    statisticsOfLetters.put('t', 6.9509);
+    statisticsOfLetters.put('n', 6.6544);
+    statisticsOfLetters.put('s', 5.7351);
+    statisticsOfLetters.put('l', 5.4893);
+    statisticsOfLetters.put('c', 4.5388);
+    statisticsOfLetters.put('u', 3.6308);
+    statisticsOfLetters.put('d', 3.3844);
+    statisticsOfLetters.put('p', 3.1671);
+    statisticsOfLetters.put('m', 3.0129);
+    statisticsOfLetters.put('h', 3.0034);
+    statisticsOfLetters.put('g', 2.4705);
+    statisticsOfLetters.put('b', 2.0720);
+    statisticsOfLetters.put('f', 1.8121);
+    statisticsOfLetters.put('y', 1.7779);
+    statisticsOfLetters.put('w', 1.2899);
+    statisticsOfLetters.put('k', 1.1016);
+    statisticsOfLetters.put('v', 1.0074);
+    statisticsOfLetters.put('x', 0.2902);
+    statisticsOfLetters.put('z', 0.2722);
+    statisticsOfLetters.put('j', 0.1965);
+    statisticsOfLetters.put('q', 0.1962);
+    statisticsOfLetters.put(' ', 100.17);
 
-    StatisticsOfLetters = sortByValue(StatisticsOfLetters);
+
+    statisticsOfLetters = sortByValue(statisticsOfLetters);
 
     System.out.println();
-    for (Entry<Character, Double> entry : StatisticsOfLetters.entrySet()) {
+    for (Entry<Character, Double> entry : statisticsOfLetters.entrySet()) {
       System.out.print(entry.getKey() + ": " + entry.getValue() + " ");
     }
     System.out.println();
@@ -100,10 +95,10 @@ public class Decrypting {
 
   public char[] descrint(char[] charArray){
 
-    char[][] resultMatrixLetter = new char[2][StatisticsOfLetters.size()];
+    char[][] resultMatrixLetter = new char[2][statisticsOfLetters.size()];
 
     int index = 0;
-    for (char letter : StatisticsOfLetters.keySet())
+    for (char letter : statisticsOfLetters.keySet())
       resultMatrixLetter[0][index++] = letter;
 
     index = 0;
