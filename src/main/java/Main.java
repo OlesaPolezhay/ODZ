@@ -1,44 +1,68 @@
 package main.java;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
 
 public class Main {
 
-
-  static HashMap<Character, Double> StatisticsOfLetters ;
-
   public static void main(String[] args) throws FileNotFoundException  {
 
-    Cryptographer cryptographer = new Cryptographer();
-    cryptographer.printAlphabet();
-    cryptographer.printMixUkrAlphabet();
+    String [] textFileArray = new String[3];
 
-    char [] charArray = readFromFile("C:\\Users\\lesja\\Desktop\\Забезпечення якості програмних продуктів\\"
-        + "untitled\\src\\main\\java\\text25.txt");
+    textFileArray[0] = "C:\\Users\\lesja\\Desktop\\Забезпечення якості програмних продуктів\\untitled\\src\\main\\java\\text.txt";
+    textFileArray[1] = "C:\\Users\\lesja\\Desktop\\Забезпечення якості програмних продуктів\\untitled\\src\\main\\java\\text5.txt";
+    textFileArray[2] = "C:\\Users\\lesja\\Desktop\\Забезпечення якості програмних продуктів\\untitled\\src\\main\\java\\text25.txt";
 
+    String filename = "C:\\Users\\lesja\\Desktop\\Забезпечення якості програмних продуктів\\untitled\\src\\main\\java\\result.txt";
 
-    System.out.println("\nВхідний текст:");
-    System.out.println(charArray);
-    char[] encryptedText = cryptographer.textEncryption(charArray);
+    try(BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+      for (String word : textFileArray) {
+        writer.write("Аналіз результатів для " + word);
+        System.out.println("Аналіз результатів для " + word);
 
-    System.out.println("\nЗашифрований текст:");
-    System.out.println(encryptedText);
+        Cryptographer cryptographer = new Cryptographer();
+        cryptographer.printAlphabet();
+        cryptographer.printMixUkrAlphabet();
 
-    Decrypting decrypting = new Decrypting();
-    decrypting.countLetters(encryptedText);
-    char[] decryptedText = decrypting.descrint(encryptedText);
+        char[] charArray = readFromFile(word);
 
-    System.out.println("\nРозшифрований текст:");
-    System.out.println(decryptedText);
+        writer.write("\nВхідний текст:\n");
+        writer.write(charArray );
+        System.out.println("\nВхідний текст:");
+        System.out.println(charArray);
+        char[] encryptedText = cryptographer.textEncryption(charArray);
 
-    Analysis analysis = new Analysis();
-    analysis.compareCharArrays(charArray, decryptedText);
-    analysis.printResultAnalysis();
+        writer.write("\nЗашифрований текст:\n");
+        System.out.println("\nЗашифрований текст:");
+        writer.write(encryptedText);
+        System.out.println(encryptedText);
 
+        Decrypting decrypting = new Decrypting();
+        decrypting.countLetters(encryptedText);
+        char[] decryptedText = decrypting.descrint(encryptedText);
+
+        writer.write("\nРозшифрований текст: \n");
+        decrypting.countLetters(decryptedText);
+        System.out.println("\nРозшифрований текст:");
+        System.out.println(decryptedText);
+        writer.write(decryptedText);
+
+        Analysis analysis = new Analysis();
+        analysis.compareCharArrays(charArray, decryptedText);
+        System.out.println(analysis.printResultAnalysis());
+        writer.write(analysis.printResultAnalysis());
+        writer.write("\n\n");
+        System.out.println();
+    }
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   static char[] readFromFile (String nameFile ) throws FileNotFoundException {

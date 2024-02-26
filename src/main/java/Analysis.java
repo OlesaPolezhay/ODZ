@@ -24,8 +24,8 @@ public class Analysis {
       }
     }
 
-  public void printResultAnalysis(){
-    System.out.println("Аналіз результатів: ");
+  public String printResultAnalysis(){
+    /*System.out.println("Аналіз результатів: ");
     analysisOfLetters.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
 
     System.out.println( "Кількість використаних значень: " + analysisOfLetters.size());
@@ -33,7 +33,21 @@ public class Analysis {
     System.out.println("Кількість значень які співпали: " + countTrueValues);
 
     int countFalseValues = countValues(false);
-    System.out.println("Кількість значень, які не співпали: " + countFalseValues);
+    System.out.println("Кількість значень, які не співпали: " + countFalseValues);*/
+
+    StringBuilder result = new StringBuilder();
+    result.append("Аналіз результатів: \n");
+    analysisOfLetters.forEach((key, value) -> result.append("Key: ").append(key).append(", Value: ").append(value).append("\n"));
+
+    result.append("Кількість використаних значень: ").append(analysisOfLetters.size()).append("\n");
+    int countTrueValues = countValues(true);
+    result.append("Кількість значень які співпали: ").append(countTrueValues).append("\n");
+
+    int countFalseValues = countValues(false);
+    result.append("Кількість значень, які не співпали: ").append(countFalseValues);
+
+    String finalResult = result.toString();
+    return finalResult;
   }
 
   public static int countValues(boolean valueToCount) {
