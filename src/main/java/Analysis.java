@@ -17,9 +17,9 @@ public class Analysis {
         int result =  Character.compare(charArrayChar, decryptedTextChar);
         int resultGap = Character.compare(charArrayChar, ' ');
 
-        if ((Character.isLetter(charArrayChar) || resultGap == 0) && result == 0 )
+        if (resultGap == 0 || ( result == 0  && isUkrainianLetter(charArrayChar)))
           analysisOfLetters.put(charArrayChar, true);
-        else if (Character.isLetter(charArrayChar))
+        else if (isUkrainianLetter(charArrayChar))
           analysisOfLetters.put(charArrayChar, false);
       }
     }
@@ -44,6 +44,15 @@ public class Analysis {
       }
     }
     return count;
+  }
+
+  public static boolean isUkrainianLetter(char c) {
+    return ((c >= '\u0410' && c <= '\u042F') || // прописні українські літери
+        (c >= '\u0430' && c <= '\u044F') || // строчні українські літери
+        c == 'Ї' || c == 'ї' ||            // українська літера Ї (Ї)
+        c == 'І' || c == 'і' ||            // українська літера І (I)
+        c == 'Є' || c == 'є' ||            // українська літера Є (Є)
+        c == 'Ґ' || c == 'ґ');            // українська літера Ґ (Ґ)
   }
 }
 

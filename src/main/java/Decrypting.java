@@ -20,47 +20,47 @@ public class Decrypting {
   public void statisticsOfUkrLetters(){
 
     StatisticsOfLetters = new HashMap<>();
-    StatisticsOfLetters.put('а', 0.072);
-    StatisticsOfLetters.put('ї', 0.006);
-    StatisticsOfLetters.put('у', 0.04);
-    StatisticsOfLetters.put('б', 0.017);
-    StatisticsOfLetters.put('й', 0.008);
-    StatisticsOfLetters.put('ф', 0.001);
-    StatisticsOfLetters.put('в', 0.052);
-    StatisticsOfLetters.put('к', 0.035);
-    StatisticsOfLetters.put('х', 0.012);
-    StatisticsOfLetters.put('г', 0.016);
-    StatisticsOfLetters.put('л', 0.036);
-    StatisticsOfLetters.put('ц', 0.006);
-    StatisticsOfLetters.put('д', 0.035);
-    StatisticsOfLetters.put('м', 0.031);
-    StatisticsOfLetters.put('ч', 0.018);
-    StatisticsOfLetters.put('е', 0.017);
-    StatisticsOfLetters.put('н', 0.065);
-    StatisticsOfLetters.put('ш', 0.012);
-    StatisticsOfLetters.put('є', 0.008);
-    StatisticsOfLetters.put('о', 0.094);
-    StatisticsOfLetters.put('щ', 0.001);
-    StatisticsOfLetters.put('ж', 0.009);
-    StatisticsOfLetters.put('п', 0.029);
-    StatisticsOfLetters.put('ю', 0.004);
-    StatisticsOfLetters.put('з', 0.023);
-    StatisticsOfLetters.put('р', 0.047);
-    StatisticsOfLetters.put('я', 0.029);
-    StatisticsOfLetters.put('и', 0.061);
-    StatisticsOfLetters.put('с', 0.041);
-    StatisticsOfLetters.put('ь', 0.029);
-    StatisticsOfLetters.put('і', 0.057);
-    StatisticsOfLetters.put('т', 0.055);
+    StatisticsOfLetters.put('а', 0.0807);
+    StatisticsOfLetters.put('ї', 0.0065);
+    StatisticsOfLetters.put('у', 0.0336);
+    StatisticsOfLetters.put('б', 0.0176);
+    StatisticsOfLetters.put('й', 0.0138);
+    StatisticsOfLetters.put('ф', 0.0028);
+    StatisticsOfLetters.put('в', 0.0535);
+    StatisticsOfLetters.put('к', 0.0354);
+    StatisticsOfLetters.put('х', 0.0119);
+    StatisticsOfLetters.put('г', 0.0155);
+    StatisticsOfLetters.put('л', 0.0369);
+    StatisticsOfLetters.put('ц', 0.0083);
+    StatisticsOfLetters.put('д', 0.0338);
+    StatisticsOfLetters.put('м', 0.0303);
+    StatisticsOfLetters.put('ч', 0.0141);
+    StatisticsOfLetters.put('е', 0.0495);
+    StatisticsOfLetters.put('н', 0.0681);
+    StatisticsOfLetters.put('ш', 0.0076);
+    StatisticsOfLetters.put('є', 0.0061);
+    StatisticsOfLetters.put('о', 0.0942);
+    StatisticsOfLetters.put('щ', 0.0056);
+    StatisticsOfLetters.put('ж', 0.0092);
+    StatisticsOfLetters.put('п', 0.0290);
+    StatisticsOfLetters.put('ю', 0.0093);
+    StatisticsOfLetters.put('з', 0.0232);
+    StatisticsOfLetters.put('р', 0.0448);
+    StatisticsOfLetters.put('я', 0.0248);
+    StatisticsOfLetters.put('и', 0.0626);
+    StatisticsOfLetters.put('с', 0.0421);
+    StatisticsOfLetters.put('ь', 0.0177);
+    StatisticsOfLetters.put('і', 0.0575);
+    StatisticsOfLetters.put('т', 0.0534);
     StatisticsOfLetters.put(' ', 0.17);
 
     StatisticsOfLetters = sortByValue(StatisticsOfLetters);
 
-    System.out.println();
+   /* System.out.println();
     for (Entry<Character, Double> entry : StatisticsOfLetters.entrySet()) {
       System.out.print(entry.getKey() + ": " + entry.getValue() + " ");
     }
-    System.out.println();
+    System.out.println();*/
   }
   public void countLetters(char[] chars) {
 
@@ -68,7 +68,7 @@ public class Decrypting {
 
     for (char c : chars) {
       int resultGap = Character.compare(c, ' ');
-      if (Character.isLetter(c)) {
+      if (Character.isLetter(c) && StatisticsOfLetters.containsKey(c)) {
         c = Character.toLowerCase(c);
         letterCount.put(c, letterCount.getOrDefault(c, 0) + 1);
       } else if(resultGap == 0){
@@ -78,8 +78,8 @@ public class Decrypting {
     letterCount = sortByValue(letterCount);
 
     // розрахунок літер у зашифрованому тексті
-    System.out.println();
-    letterCount.forEach((key, value) -> System.out.print( key + ": " + value + " "));
+ /*   System.out.println();
+    letterCount.forEach((key, value) -> System.out.print( key + ": " + value + " "));*/
   }
   public static <T extends Comparable<? super T>> LinkedHashMap<Character, T> sortByValue(HashMap<Character, T> map) {
     List<Entry<Character, T>> list = new LinkedList<>(map.entrySet());
@@ -111,13 +111,13 @@ public class Decrypting {
       resultMatrixLetter[1][index++] = letter;
 
 // Виведення матриці
-    System.out.println();
+/*    System.out.println();
     for (char[] chars : resultMatrixLetter) {
       for (char aChar : chars) {
         System.out.print(aChar + " ");
       }
       System.out.println();
-    }
+    }*/
 
 // Дешифрування
     char[] decryptingText = new char[charArray.length];

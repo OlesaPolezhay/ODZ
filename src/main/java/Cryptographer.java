@@ -14,11 +14,6 @@ public class Cryptographer {
       'ш', 'щ', 'ь', 'ю', 'я', ' '
   };
 
-/*  private static final char[] mixUkrAlphabet = {
-      'ф', 'у', 'ї', 'б', 'т', 'д', 'м', 'ж', 'о', 'ч', 'г', 'н', 'п', 'а',
-      'и', 'х', 'е', 'в', 'ц', 'я', 'ш', 'ґ', 'щ', 'і', 'ь', 'л', 'з', 'й',
-      'с', 'ю', 'є', 'р', 'к'
-  };*/
   private static final char[] mixUkrAlphabet = new char[ukrAlphabet.length];
 
   public char[] textEncryption(char[] charArray ){
@@ -50,7 +45,7 @@ public class Cryptographer {
       System.out.print(c + " ");
     }
 
-  public void mixUkrAlphabet(){
+  public void printMixUkrAlphabet(){
     System.out.println("\nПеремішаний укранський алфавіт для шифру");
     for (char c :mixUkrAlphabet)
       System.out.print(c + " ");

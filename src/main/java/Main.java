@@ -15,8 +15,7 @@ public class Main {
 
     Cryptographer cryptographer = new Cryptographer();
     cryptographer.printAlphabet();
-    cryptographer.mixUkrAlphabet();
-
+    cryptographer.printMixUkrAlphabet();
 
     char [] charArray = readFromFile("C:\\Users\\lesja\\Desktop\\Забезпечення якості програмних продуктів\\"
         + "untitled\\src\\main\\java\\text25.txt");
@@ -42,21 +41,14 @@ public class Main {
 
   }
 
-  public static void printArrayChar(char[] array){
-    System.out.println();
-    for (char c : array) {
-      System.out.print(c);
-    }
-  }
-
   static char[] readFromFile (String nameFile ) throws FileNotFoundException {
     File file = new File(nameFile);
     Scanner inputFileText = new Scanner(file);
 
     StringBuilder stringBuilder = new StringBuilder();
     while (inputFileText.hasNextLine()) {
-      stringBuilder.append(inputFileText.nextLine()); // зчитати рядок
-      stringBuilder.append("\n"); // додати символ нового рядка
+      stringBuilder.append(inputFileText.nextLine());
+      stringBuilder.append("\n");
     }
 
     String text = stringBuilder.toString();
