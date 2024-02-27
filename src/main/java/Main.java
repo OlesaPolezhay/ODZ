@@ -22,26 +22,24 @@ public class Main {
     String filename = "C:\\Users\\lesja\\Desktop\\Забезпечення якості програмних продуктів\\untitled\\src\\main\\java\\result.txt";
 
     try(BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+
+
+
       for (String word : textFileArray) {
-        writer.write("Аналіз результатів для " + word);
-        System.out.println("Аналіз результатів для " + word);
+        writer.write("Аналіз для " + word);
 
         Cryptographer cryptographer = new Cryptographer();
-        cryptographer.printAlphabet();
-        cryptographer.printMixUkrAlphabet();
+        writer.write(cryptographer.getUkrAlphabet());
+        writer.write(cryptographer.getMixUkrAlphabet());
 
         char[] charArray = readFromFile(word);
 
         writer.write("\nВхідний текст:\n");
         writer.write(charArray );
-        System.out.println("\nВхідний текст:");
-        System.out.println(charArray);
         char[] encryptedText = cryptographer.textEncryption(charArray);
 
         writer.write("\nЗашифрований текст:\n");
-        System.out.println("\nЗашифрований текст:");
         writer.write(encryptedText);
-        System.out.println(encryptedText);
 
         Decrypting decrypting = new Decrypting();
         decrypting.countLetters(encryptedText);
@@ -49,18 +47,16 @@ public class Main {
 
         writer.write("\nРозшифрований текст: \n");
         decrypting.countLetters(decryptedText);
-        System.out.println("\nРозшифрований текст:");
-        System.out.println(decryptedText);
         writer.write(decryptedText);
 
         Analysis analysis = new Analysis();
         analysis.compareCharArrays(charArray, decryptedText);
-        System.out.println(analysis.printResultAnalysis());
         writer.write(analysis.printResultAnalysis());
         writer.write("\n\n");
-        System.out.println();
+        System.out.println("Дані успішно завантажені");
     }
     } catch (IOException e) {
+      System.err.println("Помилка при записі у файл: " + e.getMessage());
       throw new RuntimeException(e);
     }
   }

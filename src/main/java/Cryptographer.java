@@ -45,6 +45,27 @@ public class Cryptographer {
       System.out.print(c + " ");
     }
 
+    public  String getUkrAlphabet(){
+      StringBuilder stringBuilder = new StringBuilder();
+
+      stringBuilder.append("\nУкраїнський алфавіт \n");
+
+      for (char c : ukrAlphabet)
+        stringBuilder.append(c).append(" ");
+
+      return stringBuilder.toString();
+    }
+
+  public  String getMixUkrAlphabet(){
+    StringBuilder stringBuilder = new StringBuilder();
+
+    stringBuilder.append("\nПеремішаний український алфавіт \n");
+
+    for (char c : mixUkrAlphabet)
+      stringBuilder.append(c).append(" ");
+
+    return stringBuilder.toString();
+  }
   public void printMixUkrAlphabet(){
     System.out.println("\nПеремішаний укранський алфавіт для шифру");
     for (char c :mixUkrAlphabet)
@@ -64,4 +85,7 @@ public class Cryptographer {
         mixUkrAlphabet[i] = temp;
       }
   }
+
+
+
 }

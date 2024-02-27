@@ -25,15 +25,6 @@ public class Analysis {
     }
 
   public String printResultAnalysis(){
-    /*System.out.println("Аналіз результатів: ");
-    analysisOfLetters.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
-
-    System.out.println( "Кількість використаних значень: " + analysisOfLetters.size());
-    int countTrueValues = countValues(true);
-    System.out.println("Кількість значень які співпали: " + countTrueValues);
-
-    int countFalseValues = countValues(false);
-    System.out.println("Кількість значень, які не співпали: " + countFalseValues);*/
 
     StringBuilder result = new StringBuilder();
     result.append("Аналіз результатів: \n");
