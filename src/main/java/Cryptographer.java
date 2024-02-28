@@ -1,5 +1,4 @@
 package main.java;
-
 import java.util.Random;
 
 public class Cryptographer {
@@ -39,11 +38,6 @@ public class Cryptographer {
     return encryptedText;
   }
 
-    public  void printAlphabet(){
-    System.out.println("Український алфавіт");
-    for (char c : ukrAlphabet)
-      System.out.print(c + " ");
-    }
 
     public  String getUkrAlphabet(){
       StringBuilder stringBuilder = new StringBuilder();
@@ -66,11 +60,6 @@ public class Cryptographer {
 
     return stringBuilder.toString();
   }
-  public void printMixUkrAlphabet(){
-    System.out.println("\nПеремішаний укранський алфавіт для шифру");
-    for (char c :mixUkrAlphabet)
-      System.out.print(c + " ");
-  }
 
     static void shuffleArray() {
     int index;
@@ -85,7 +74,4 @@ public class Cryptographer {
         mixUkrAlphabet[i] = temp;
       }
   }
-
-
-
 }
